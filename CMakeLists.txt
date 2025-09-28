@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.14...3.31)
 project(
     cyengine
@@ -30,7 +31,7 @@ FetchContent_Declare(
     )
 FetchContent_MakeAvailable( spdlog )
 
-## Declare the engine library
+## Declares the engine library
 add_library( cyengine STATIC
     src/GraphicsManager.cpp
     src/Types.h
