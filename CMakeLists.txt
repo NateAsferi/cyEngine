@@ -36,12 +36,12 @@ add_library( cyengine STATIC
     src/GraphicsManager.cpp
     src/Types.h
     src/Engine.h
-    )
+     "src/InputManager.h" "src/InputManager.cpp")
 set_target_properties( cyengine PROPERTIES CXX_STANDARD 20 )
 ## Declare our engine's header path.
 ## This allows targets that depend on the engine to #include them.
 target_include_directories( cyengine PUBLIC src )
-add_executable( helloworld demo/helloworld.cpp )
+add_executable( helloworld demo/helloworld.cpp  "src/InputManager.h" "src/InputManager.cpp")
 set_target_properties( helloworld PROPERTIES CXX_STANDARD 20 )
 add_custom_target( run_helloworld helloworld USES_TERMINAL )
 target_link_libraries( helloworld PRIVATE cyengine )

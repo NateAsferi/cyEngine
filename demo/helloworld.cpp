@@ -1,18 +1,23 @@
-#include "GraphicsManager.h"
+#include "Engine.h"
+#include <iostream>
 
 int main() {
-    GraphicsManager gfx;
+    Engine engine;
 
-    if (!gfx.startup(800, 600, "Hello Engine", false)) {
-        return -1; // failed to start
+    // Initialize graphics
+    if (!engine.GetGraphicsManager().startup(800, 600, "Checkpoint 3", false)) {
+        return -1;
     }
 
-    // Main loop
-    while (true) {
-        // In the future: poll input, update game logic, draw frame
-        if (false) break; // stub exit condition
-    }
+    engine.RunGameLoop([&]() {
+        if (engine.GetInputManager().KeyIsPressed(GLFW_KEY_A)) {
+            std::cout << "A key pressed!\n";
+        }
+        if (engine.GetInputManager().KeyIsPressed(GLFW_KEY_ESCAPE)) {
+            engine.GetGraphicsManager().SetShouldQuit(true);
+        }
+        });
 
-    gfx.shutdown();
+    engine.GetGraphicsManager().shutdown();
     return 0;
 }
