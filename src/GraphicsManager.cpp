@@ -3,6 +3,14 @@
 #include "spdlog/spdlog.h"
 #include "GraphicsManager.h"
 
+/**
+* @brief Creates the window for the game engine.
+* @param width Width of the window.
+* @param height Height of the window.
+* @param name Name of the program.
+* @param fullscreen Whether or not the window should be fullscreened.
+* @return True, if the window is created sucessfully. False, if an error has occurred.
+*/
 bool GraphicsManager::startup(int width, int height, const char* name, bool fullscreen) {
     if (!glfwInit()) {
         spdlog::error("Failed to initialize GLFW.");
@@ -29,6 +37,9 @@ bool GraphicsManager::startup(int width, int height, const char* name, bool full
     return true;
 }
 
+/**
+* @brief Terminates all windows and graphics.
+*/
 void GraphicsManager::shutdown() {
     glfwTerminate();
     spdlog::info("GLFW terminated.");
