@@ -37,10 +37,20 @@ bool GraphicsManager::startup(int width, int height, const char* name, bool full
     return true;
 }
 
+/**
+* @brief 
+* 
+* 
+*/
 bool GraphicsManager::ShouldQuit() const {
     return glfwWindowShouldClose(m_window);
 }
 
+/**
+* 
+* 
+* 
+*/
 void GraphicsManager::SetShouldQuit(bool value) {
     glfwSetWindowShouldClose(m_window, value);
 }
